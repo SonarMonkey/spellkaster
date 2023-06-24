@@ -52,8 +52,12 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 func (m model) View() string {
 	s := "What would you like to do?\n\n"
 
+	// iterate over the choices
 	for i, choice := range m.choices {
+		// no cursor
 		cursor := " "
+
+		// cursor!!!
 		if m.cursor == i {
 			cursor = ">"
 		}
@@ -66,6 +70,7 @@ func (m model) View() string {
 	return s
 }
 
+// put all of it together
 func main() {
 	p := tea.NewProgram(initialModel())
 	if _, err := p.Run(); err !=nil {
